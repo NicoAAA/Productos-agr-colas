@@ -1,10 +1,13 @@
-Tienda Campesina Agro SENA
+# Tienda Campesina Agro SENA
 
-Este proyecto es una página web responsive construida con Bootstrap 5 y Sass, diseñada para promocionar y vender productos agrícolas de la iniciativa rural del SENA. El objetivo es ofrecer una experiencia visual atractiva, organizada y coherente con la paleta de colores y el estilo del campo.
+Este proyecto es una página web responsive construida con **Bootstrap 5** y **Sass**, diseñada para promocionar y vender productos agrícolas de la iniciativa rural del SENA. El objetivo es ofrecer una experiencia visual atractiva, organizada y coherente con la paleta de colores y el estilo del campo.
 
-📁 Estructura del proyecto
+---
 
-/mi-proyecto
+## 📁 Estructura del proyecto
+
+```
+/Productos-agr-colas
 │
 ├── index.html             # Página principal con la estructura HTML
 ├── package.json           # Configuración de NPM y scripts
@@ -14,21 +17,27 @@ Este proyecto es una página web responsive construida con Bootstrap 5 y Sass, d
 └── css/
     └── style.css          # CSS compilado (Bootstrap + overrides)
 assets/
-├── img/                   # Imágenes de productos y fondo (ej. campo.jpg, verduras.
-|   └── logo.svg               # Logo ficticio de Agro SENA
-├── fonts/                 # Tipografía personalizada (Feather Bold.ttf)
+├── img/                   # Imágenes de productos y fondo (ej. campo.jpg, verduras.jpg)
+|   |
+|   └── logosena.svg           # Logo ficticio de Agro SENA
+|   └── cards/             # Carpeta con las imagenes de las cards
+|   └── hero/              # Carpeta con las imagenes del hero
+|
+└── fonts/                 # Tipografía personalizada (Feather Bold.ttf)
 
+```
 
-⚙️ Tecnologías y dependencias
+---
 
-Bootstrap 5 (SCSS) para layout, components y grid system.
+## ⚙️ Tecnologías y dependencias
 
-Sass (Dart Sass) para preprocesar SCSS y personalizar la paleta de colores.
+* **Bootstrap 5** (SCSS) para layout, components y grid system.
+* **Sass (Dart Sass)** para preprocesar SCSS y personalizar la paleta de colores.
+* **NPM** para gestionar dependencias y scripts de compilación.
 
-NPM para gestionar dependencias y scripts de compilación.
+Dependencias principales en `package.json`:
 
-Dependencias principales en package.json:
-
+```json
 {
   "dependencies": {
     "bootstrap": "^5.3.2"
@@ -37,80 +46,85 @@ Dependencias principales en package.json:
     "sass": "^1.x.x"
   }
 }
+```
 
-🚀 Instalación y desarrollo
+---
 
-Clona o descarga el repositorio.
+## 🚀 Instalación y desarrollo
 
-Abre terminal en la carpeta raíz del proyecto.
+1. Clona o descarga el repositorio.
+2. Abre terminal en la carpeta raíz del proyecto.
+3. Instala las dependencias:
 
-Instala las dependencias:
+   ```bash
+   npm install
+   ```
+4. Enciende el compilador Sass en modo `watch`:
 
-npm install
+   ```bash
+   npm run sass:dev
+   ```
 
-Enciende el compilador Sass en modo watch:
+   Esto observará cambios en `scss/style.scss` y generará automáticamente `css/style.css`.
+5. Abre `index.html` en tu navegador (o usa un servidor local como Live Server) para ver los cambios en tiempo real.
 
-npm run sass:dev
+---
 
-Esto observará cambios en scss/style.scss y generará automáticamente css/style.css.
+## 🖋️ Edición de estilos (SCSS)
 
-Abre index.html en tu navegador (o usa un servidor local como Live Server) para ver los cambios en tiempo real.
+* **Variables de paleta**: en la parte superior de `scss/style.scss` se definen:
 
-🖋️ Edición de estilos (SCSS)
+  ```scss
+  $primary:   #2a6f2b;  // Verde campo
+  $secondary: #f0c987;  // Amarillo trigo
+  $success:   #4a9d4a;  
+  $info:      #8ecae6;  
+  $body-color:#333;     // Texto principal
+  ```
+* **Import de Bootstrap**:
 
-Variables de paleta: en la parte superior de scss/style.scss se definen:
+  ```scss
+  @import "../node_modules/bootstrap/scss/bootstrap";
+  ```
+* **Overrides y personalizaciones**:
 
-$primary:   #2a6f2b;  // Verde campo
-$secondary: #f0c987;  // Amarillo trigo
-$success:   #4a9d4a;  
-$info:      #8ecae6;  
-$body-color:#333;     // Texto principal
+  * Tipografía personalizada con `@font-face`.
+  * Estilos para navbar, hero, cards, accordion, carousel, formulario y footer.
+  * Componentes de Bootstrap (modal, carousel, accordion) integrados y estilizados.
 
-Import de Bootstrap:
+---
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+## 🧩 Componentes destacados
 
-Overrides y personalizaciones:
+1. **Navbar** responsive con logo e íconos de colapso.
+2. **Sección Hero** con fondo de campo y botón que abre modal de video.
+3. **Grid de Productos** con cards que muestran imágenes, títulos y botones.
+4. **Accordion de Servicios** para describir asesoría, logística y talleres.
+5. **Carousel de Testimonios** estilizado: citas en cursiva y autor resaltado.
+6. **Formulario de Contacto** con campos básicos y botón personalizado.
+7. **Footer** con datos legales y enlaces a redes sociales.
 
-Tipografía personalizada con @font-face.
+---
 
-Estilos para navbar, hero, cards, accordion, carousel, formulario y footer.
+## 📌 Uso en producción
 
-Componentes de Bootstrap (modal, carousel, accordion) integrados y estilizados.
+1. Genera CSS minificado:
 
-🧩 Componentes destacados
+   ```bash
+   npm run sass:build
+   ```
+2. Sube sólo `index.html`, la carpeta `css/` (con `style.css`), `assets/` y el archivo JS de Bootstrap.
+3. Asegúrate de enlazar correctamente `css/style.css` y `js/bootstrap.bundle.min.js`.
 
-Navbar responsive con logo e íconos de colapso.
+---
 
-Sección Hero con fondo de campo y botón que abre modal de video.
+## 🎨 Personalización
 
-Grid de Productos con cards que muestran imágenes, títulos y botones.
+* Cambia la paleta de colores modificando las variables SCSS.
+* Agrega o quita secciones duplicando los patrones de Bootstrap.
+* Sustituye imágenes en `assets/img/` con contenido real o ficticio.
+* Actualiza íconos usando [Bootstrap Icons](https://icons.getbootstrap.com/) o tu propia librería.
 
-Accordion de Servicios para describir asesoría, logística y talleres.
+---
 
-Carousel de Testimonios estilizado: citas en cursiva y autor resaltado.
-
-Formulario de Contacto con campos básicos y botón personalizado.
-
-Footer con datos legales y enlaces a redes sociales.
-
-📌 Uso en producción
-
-Genera CSS minificado:
-
-npm run sass:build
-
-Sube sólo index.html, la carpeta css/ (con style.css), assets/ y el archivo JS de Bootstrap.
-
-Asegúrate de enlazar correctamente css/style.css y js/bootstrap.bundle.min.js.
-
-🎨 Personalización
-
-Cambia la paleta de colores modificando las variables SCSS.
-
-Agrega o quita secciones duplicando los patrones de Bootstrap.
-
-Sustituye imágenes en assets/img/ con contenido real o ficticio.
-
-Actualiza íconos usando Bootstrap Icons o tu propia librería.
-
+**¡Listo!** Con esta guía podrás entender y extender la Tienda Campesina Agro SENA. Cualquier duda, revisa el código o abre un issue.
