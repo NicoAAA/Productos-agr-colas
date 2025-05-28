@@ -1,0 +1,14 @@
+/* css/style.css */
+
+@font-face {
+    font-family: 'FatherBold';
+    src: url('../assets/fonts/Feather Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'FatherBold', sans-serif;
+    font-size: 18px;
+}
+
